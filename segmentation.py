@@ -208,13 +208,15 @@ epochs = range(EPOCHS)
 
 plt.figure()
 plt.plot(epochs, loss, 'r', label='Training loss')
-plt.plot(epochs, val_loss, 'bo', label='Validation loss')
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
 plt.title('Training and Validation Loss')
 plt.xlabel('Epoch')
 plt.ylabel('Loss Value')
 plt.ylim([0, 1])
 plt.legend()
+plt.savefig("loss.jpg")
 plt.show()
+
 
 plt.figure()
 plt.plot(epochs, accuracy, 'r', label='Training accuracy')
@@ -224,6 +226,7 @@ plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.ylim([0, 1])
 plt.legend()
+plt.savefig("acc.jpg")
 plt.show()
 
 ## Save model
