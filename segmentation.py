@@ -17,11 +17,14 @@ The dataset is already included in TensorFlow datasets, all that is needed to do
 """
 # Daniel: Bez uczenia modelu, tylko ewaluacja
 load_trained_model = True
+IMG_SHAPE = 512
 
 # Daniel: ja już pobrałem te pliki, są na repo, bo jak próbowałem odpalić z download=True to wywalało mi jakieś błędy nie do naprawienia
 dataset, info = tfds.load('oxford_iiit_pet:3.0.0', with_info=True, download=False)
 
-"""The following code performs a simple augmentation of flipping an image. In addition,  image is normalized to [0,1]. Finally, as mentioned above the pixels in the segmentation mask are labeled either {1, 2, 3}. For the sake of convinience, let's subtract 1 from the segmentation mask, resulting in labels that are : {0, 1, 2}."""
+"""The following code performs a simple augmentation of flipping an image. In addition,  image is normalized to [0,1]. 
+Finally, as mentioned above the pixels in the segmentation mask are labeled either {1, 2, 3}. 
+For the sake of convinience, let's subtract 1 from the segmentation mask, resulting in labels that are : {0, 1, 2}."""
 
 def normalize(input_image, input_mask):
   input_image = tf.cast(input_image, tf.float32) / 255.0
@@ -30,8 +33,8 @@ def normalize(input_image, input_mask):
 
 @tf.function
 def load_image_train(datapoint):
-  input_image = tf.image.resize(datapoint['image'], (128, 128))
-  input_mask = tf.image.resize(datapoint['segmentation_mask'], (128, 128))
+  input_image = tf.image.resize(datapoint['image'], (IMG_SHAPE, IMG_SHAPE))
+  input_mask = tf.image.resize(datapoint['segmentation_mask'], (IMG_SHAPE, IMG_SHAPE))
 
   if tf.random.uniform(()) > 0.5:
     input_image = tf.image.flip_left_right(input_image)
@@ -42,8 +45,8 @@ def load_image_train(datapoint):
   return input_image, input_mask
 
 def load_image_test(datapoint):
-  input_image = tf.image.resize(datapoint['image'], (128, 128))
-  input_mask = tf.image.resize(datapoint['segmentation_mask'], (128, 128))
+  input_image = tf.image.resize(datapoint['image'], (IMG_SHAPE, IMG_SHAPE))
+  input_mask = tf.image.resize(datapoint['segmentation_mask'], (IMG_SHAPE, IMG_SHAPE))
 
   input_image, input_mask = normalize(input_image, input_mask)
 
@@ -82,16 +85,23 @@ for image, mask in train.take(1):
 display([sample_image, sample_mask])
 
 """## Define the model
-The model being used here is a modified U-Net. A U-Net consists of an encoder (downsampler) and decoder (upsampler). In-order to learn robust features, and reduce the number of trainable parameters, a pretrained model can be used as the encoder. Thus, the encoder for this task will be a pretrained MobileNetV2 model, whose intermediate outputs will be used, and the decoder will be the upsample block already implemented in TensorFlow Examples in the [Pix2pix tutorial](https://github.com/tensorflow/examples/blob/master/tensorflow_examples/models/pix2pix/pix2pix.py). 
+The model being used here is a modified U-Net. A U-Net consists of an encoder (downsampler) and decoder (upsampler). 
+In-order to learn robust features, and reduce the number of trainable parameters, a pretrained model can be used as the encoder. 
+Thus, the encoder for this task will be a pretrained MobileNetV2 model, whose intermediate outputs will be used, 
+and the decoder will be the upsample block already implemented in TensorFlow Examples in the [Pix2pix tutorial]
+(https://github.com/tensorflow/examples/blob/master/tensorflow_examples/models/pix2pix/pix2pix.py). 
 
-The reason to output three channels is because there are three possible labels for each pixel. Think of this as multi-classification where each pixel is being classified into three classes.
+The reason to output three channels is because there are three possible labels for each pixel. 
+Think of this as multi-classification where each pixel is being classified into three classes.
 """
-
 OUTPUT_CHANNELS = 3
+"""As mentioned, the encoder will be a pretrained MobileNetV2 model which is prepared and ready to use in 
+[tf.keras.applications](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/keras/applications). 
+The encoder consists of specific outputs from intermediate layers in the model. 
+Note that the encoder will not be trained during the training process."""
 
-"""As mentioned, the encoder will be a pretrained MobileNetV2 model which is prepared and ready to use in [tf.keras.applications](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/keras/applications). The encoder consists of specific outputs from intermediate layers in the model. Note that the encoder will not be trained during the training process."""
-
-base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], include_top=False)
+base_model = tf.keras.applications.MobileNetV2(input_shape=[IMG_SHAPE, IMG_SHAPE, 3], include_top=False)
+base_model.summary()
 
 # Use the activations of these layers
 layer_names = [
@@ -124,7 +134,7 @@ def unet_model(output_channels):
       output_channels, 3, strides=2,
       padding='same', activation='softmax')  #64x64 -> 128x128
 
-  inputs = tf.keras.layers.Input(shape=[128, 128, 3])
+  inputs = tf.keras.layers.Input(shape=[IMG_SHAPE, IMG_SHAPE, 3])
   x = inputs
 
   # Downsampling through the model
