@@ -16,8 +16,8 @@ import json
 The dataset is already included in TensorFlow datasets, all that is needed to do is download it. The segmentation masks are included in version 3.0.0, which is why this particular version is used.
 """
 # Daniel: Bez uczenia modelu, tylko ewaluacja
-load_trained_model = True
-IMG_SHAPE = 512
+load_trained_model = False
+IMG_SHAPE = 256
 
 # Daniel: ja już pobrałem te pliki, są na repo, bo jak próbowałem odpalić z download=True to wywalało mi jakieś błędy nie do naprawienia
 dataset, info = tfds.load('oxford_iiit_pet:3.0.0', with_info=True, download=False)
@@ -55,7 +55,8 @@ def load_image_test(datapoint):
 """The dataset already contains the required splits of test and train and so let's continue to use the same split."""
 
 TRAIN_LENGTH = info.splits['train'].num_examples
-BATCH_SIZE = 64
+BATCH_SIZE = 8
+# BATCH_SIZE = 64
 BUFFER_SIZE = 1000
 STEPS_PER_EPOCH = TRAIN_LENGTH // BATCH_SIZE
 
@@ -101,7 +102,7 @@ The encoder consists of specific outputs from intermediate layers in the model.
 Note that the encoder will not be trained during the training process."""
 
 base_model = tf.keras.applications.MobileNetV2(input_shape=[IMG_SHAPE, IMG_SHAPE, 3], include_top=False)
-base_model.summary()
+# base_model.summary()
 
 # Use the activations of these layers
 layer_names = [
@@ -125,6 +126,8 @@ up_stack = [
     pix2pix.upsample(256, 3),  # 8x8 -> 16x16
     pix2pix.upsample(128, 3),  # 16x16 -> 32x32
     pix2pix.upsample(64, 3),   # 32x32 -> 64x64
+    pix2pix.upsample(32, 3),   # 64x64 -> 128x128
+    # pix2pix.upsample(16, 3),   # 128x128 -> 256x256
 ]
 
 def unet_model(output_channels):
@@ -132,7 +135,7 @@ def unet_model(output_channels):
   # This is the last layer of the model
   last = tf.keras.layers.Conv2DTranspose(
       output_channels, 3, strides=2,
-      padding='same', activation='softmax')  #64x64 -> 128x128
+      padding='same', activation='softmax')  #256x256 -> 512x512
 
   inputs = tf.keras.layers.Input(shape=[IMG_SHAPE, IMG_SHAPE, 3])
   x = inputs
@@ -157,6 +160,7 @@ Now, all that is left to do is to compile and train the model. The loss being us
 """
 
 model = unet_model(OUTPUT_CHANNELS)
+base_model.summary()
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
