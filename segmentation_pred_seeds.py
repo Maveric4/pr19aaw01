@@ -4,9 +4,6 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 
 from tensorflow_examples.models.pix2pix import pix2pix
-import glob
-import cv2
-import numpy as np
 
 import tensorflow_datasets as tfds
 tfds.disable_progress_bar()
@@ -269,6 +266,9 @@ Now that you have an understanding of what image segmentation is and how it work
 You may also want to see the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) for another model you can retrain on your own data.
 """
 
+import glob
+import cv2
+import numpy as np
 it = 0
 for name in glob.glob("../images/*.jpg"):
     img = cv2.imread(name)
