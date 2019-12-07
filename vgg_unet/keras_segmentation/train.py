@@ -7,8 +7,8 @@ import glob
 import six
 import datetime
 import tensorflow as tf
-import keras
-from keras.callbacks import ModelCheckpoint
+import tensorflow.keras
+from tensorflow.keras.callbacks import ModelCheckpoint
 
 def find_latest_checkpoint(checkpoints_path, fail_safe=True):
 
@@ -138,7 +138,7 @@ def train(model,
     if not validate:
         # for ep in range(epochs):
         log_dir = os.path.join("logs", "fit", datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
-        tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+        tensorboard_callback = tensorflow.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
         # print("Starting Epoch ", ep)
         print("Starting Training ")
         # Create checkpointer as you would with a regular ModelCheckpoint
@@ -152,7 +152,7 @@ def train(model,
     else:
         # for ep in range(epochs):
         log_dir = os.path.join("logs", "fit", datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
-        tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+        tensorboard_callback = tensorflow.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
         # print("Starting Epoch ", ep)
         print("Starting Training ")
         model.fit_generator(train_gen, steps_per_epoch,
