@@ -48,7 +48,7 @@ def _load_augmentation():
             # execute 0 to 5 of the following (less important) augmenters per
             # image don't execute all of them, as that would often be way too
             # strong
-            iaa.SomeOf((0, 5),
+            iaa.SomeOf((0, 0),
                        [
                 # convert images into their superpixel representation
                 sometimes(iaa.Superpixels(
@@ -129,10 +129,9 @@ def _augment_seg(img, seg):
     # Augment the input image
     image_aug = aug_det.augment_image(img)
 
-    segmap = ia.SegmentationMapOnImage(
-        seg, nb_classes=np.max(seg) + 1, shape=img.shape)
+    segmap = ia.SegmentationMapsOnImage(seg, shape=img.shape)
     segmap_aug = aug_det.augment_segmentation_maps(segmap)
-    segmap_aug = segmap_aug.get_arr_int()
+    segmap_aug = segmap_aug.get_arr()
 
     return image_aug, segmap_aug
 
