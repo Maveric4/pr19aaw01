@@ -1,4 +1,8 @@
-.idea
+.idea/
+
+#mine
+SRC/modele_256_384_480/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -7,9 +11,6 @@ __pycache__/
 
 # C extensions
 *.so
-
-#own
-tensorflow_datasets/
 
 # Distribution / packaging
 .Python
