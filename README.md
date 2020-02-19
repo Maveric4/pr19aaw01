@@ -1,3 +1,4 @@
+# Segmentacja obiektów za pomocą głębokich sieci neuronowych z zastosowaniem GPU
 
 **[1. Wstęp](#wstęp) **
 
