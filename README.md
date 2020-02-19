@@ -156,17 +156,13 @@ złożone z kilku warstw:
 
 -   warstwy nadpróbkującej, która zwiększa wymiar macierzy,
 
--   warstwy konkatenacji, łączącej wejście z poprzedniej warstwy z
-    > wyjściem z odpowiedniej warstwy enkodera,
+-   warstwy konkatenacji, łączącej wejście z poprzedniej warstwy z wyjściem z odpowiedniej warstwy enkodera,
 
--   warstwy *ZeroPadding*, dodającej wokół macierzy ramkę o wartości
-    > zero; dzięki temu następna warstwa konwolucyjna nie zmniejsza
-    > wymiaru macierzy,
+-   warstwy *ZeroPadding*, dodającej wokół macierzy ramkę o wartości zero; dzięki temu następna warstwa konwolucyjna nie zmniejsza wymiaru macierzy,
 
 -   warstwy konwolucyjnej z filtrem o rozmiarze 3x3,
 
--   warstwy *BatchNormalization*, służącej normalizacji wejść na danym
-    > etapie, co poprawia proces uczenia.
+-   warstwy *BatchNormalization*, służącej normalizacji wejść na danym etapie, co poprawia proces uczenia.
 
 Ponadto, pierwszy blok nie zawiera warstwy *upsamplingu* oraz
 konkatenacji - jego wejściem jest wyjście z enkodera VGG-16.
@@ -296,8 +292,7 @@ Wykorzystywano ponadto filtry rozmywające - Gaussa, uśredniający oraz
 medianowy, a także operacje dodające na obrazie szum, czy też
 zmieniające jego kontrast i jasność.
 
-3. Wyniki
-=========
+# 3. Wyniki
 
 W trakcie analizy problemu przeprowadzono szereg eksperymentów
 polegający na zmianie parametrów sieci, odpowiednim podziale i doborze
@@ -351,7 +346,7 @@ treningowego*
 *Rys.10. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci
 wykorzystującej rozmycia w procesie rozszerzania zbioru treningowego*
 
-![](media/image11.png
+![](media/image11.png)
 
 *Rys.11. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci nie
 wykorzystującej rozmycia w procesie rozszerzania zbioru
@@ -410,8 +405,7 @@ od modelu i liczby iteracji dla konfiguracji sprzętowej nr 1*
 zależności\
 od modelu i liczby iteracji dla konfiguracji sprzętowej nr 2*
 
-4. Analiza modelu
-=================
+# 4. Analiza modelu
 
 Zastosowany w ramach niniejszego projektu model głębokiej sieci
 neuronowej opartej na architekturze autoenkodera zaimplementowany z
@@ -441,8 +435,8 @@ parametrami:
 
 -   Waga modelu to około 145 MB
 
-5. Bibliografia
-===============
+
+# 5. Bibliografia
 
 \[1\]
 [[https://github.com/divamgupta/image-segmentation-keras]{.underline}](https://github.com/divamgupta/image-segmentation-keras)
@@ -477,8 +471,8 @@ keras.html]{.underline}](https://divamgupta.com/image-segmentation/2019/06/06/de
 [[https://www.mathworks.com/help/vision/ref/imagelabeler-app.html]{.underline}](https://www.mathworks.com/help/vision/ref/imagelabeler-app.html)
 \[ostatni dostęp: 08.01.2019 r.\]
 
-6. DODATEK A: Konfiguracje sprzętowe
-====================================
+
+# 6. DODATEK A: Konfiguracje sprzętowe
 
 Do obliczeń podczas eksperymentów przeprowadzonych w ramach projektu
 użyte zostały dwie platformy obliczeniowe. Poniżej znaleźć można
@@ -545,8 +539,8 @@ dokładne specyfikacje ich konfiguracji sprzętowych.
 
     -   Pamięć: 16 GB
 
-7. DODATEK B: Dokumentacja techniczna
-=====================================
+
+# 7. DODATEK B: Dokumentacja techniczna
 
 Podczas pracy nad projektem wykorzystywane było środowisko Pycharm IDE,
 które usprawnia pisanie kodu i zarządzanie projektami wykorzystującymi
@@ -573,8 +567,8 @@ narzędzi i bibliotek, które zostały wykorzystane w projekcie:
 
 -   Gimp - wersja 2.10.12
 
-8. DODATEK C: Zawartość płyty DVD
-=================================
+
+# 8. DODATEK C: Zawartość płyty DVD
 
 -   Kod źródłowy projektu
 
