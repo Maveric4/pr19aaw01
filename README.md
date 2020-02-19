@@ -1,6 +1,6 @@
 # Segmentacja obiektów za pomocą głębokich sieci neuronowych z zastosowaniem GPU
 
-**[1. Wstęp](#wstęp) **
+**[1. Wstęp](#wstęp)**
 
 > [Cel projektu](#cel-projektu)
 >
