@@ -420,8 +420,7 @@ parametrami:
 
 -   Łączna liczba warstw: 36
 
--   Warstwa wejściowa przyjmująca obraz o rozdzielczości: 256x256,
-    > 384x384, 480x480 (w zależności od wersji)
+-   Warstwa wejściowa przyjmująca obraz o rozdzielczości: 256x256, 384x384, 480x480 (w zależności od wersji)
 
 -   Liczba warstw konwolucyjnych: (VGG) 13, (Dekoder) 5
 
@@ -526,8 +525,7 @@ dokładne specyfikacje ich konfiguracji sprzętowych.
 
     -   Liczba rdzeni CUDA: 2560
 
-    -   Częstotliwość taktowania rdzenia: 1605 MHz (1770 MHz w trybie
-        > boost)
+    -   Częstotliwość taktowania rdzenia: 1605 MHz (1770 MHz w trybie boost)
 
     -   Pamięć: 8 GB GDDR6
 
@@ -582,11 +580,9 @@ Drzewo plików projektu zbudowane jest następująco:
 
 -   /SRC
 
-    -   /keras\_segmentation - zawiera pliki z kodem źródłowym modelu
-        > sieci (\[1\] z modyfikacjami)
+    -   /keras\_segmentation - zawiera pliki z kodem źródłowym modelu sieci (\[1\] z modyfikacjami)
 
-    -   /modele\_256\_384\_480 - zawiera zapisane wyuczone modele dla
-        > różnych rozmiarów obrazów wejściowych
+    -   /modele\_256\_384\_480 - zawiera zapisane wyuczone modele dla różnych rozmiarów obrazów wejściowych
 
     -   /PRZEKROJE - zawiera zbiór obrazów uczących
 
@@ -594,25 +590,19 @@ Drzewo plików projektu zbudowane jest następująco:
 
     -   /PRZEKROJE\_VAL - zawiera zbiór walidacyjny
 
-    -   /PRZEKROJE\_ANNOTATIONS - zawiera ręcznie opracowane wyniki
-        > referencyjne dla zbioru uczącego
+    -   /PRZEKROJE\_ANNOTATIONS - zawiera ręcznie opracowane wyniki referencyjne dla zbioru uczącego
 
-    -   /PRZEKROJE\_ANNOTATIONS\_TEST - zawiera ręcznie opracowane
-        > wyniki referencyjne dla zbioru testowego
+    -   /PRZEKROJE\_ANNOTATIONS\_TEST - zawiera ręcznie opracowane wyniki referencyjne dla zbioru testowego
 
-    -   /PRZEKROJE\_ANNOTATIONS\_VAL - zawiera ręcznie opracowane wyniki
-        > referencyjne dla zbioru walidacyjnego
+    -   /PRZEKROJE\_ANNOTATIONS\_VAL - zawiera ręcznie opracowane wyniki referencyjne dla zbioru walidacyjnego
 
     -   /train\_new.py - skrypt wywołujący funkcję uczącą model
 
-    -   /test\_new.py - skrypt pozwalający na przetestowanie wyuczonego
-        > modelu na wybranych obrazach
+    -   /test\_new.py - skrypt pozwalający na przetestowanie wyuczonego modelu na wybranych obrazach
 
-    -   /test\_time\_final.py - skrypt pozwalający na zmierzenie czasu
-        > wykonywania obliczeń
+    -   /test\_time\_final.py - skrypt pozwalający na zmierzenie czasu wykonywania obliczeń
 
-    -   /show\_time\_final.py - skrypt rysujący wykres zmierzonych
-        > czasów trwania obliczeń
+    -   /show\_time\_final.py - skrypt rysujący wykres zmierzonych czasów trwania obliczeń
 
 -   /DOC
 
