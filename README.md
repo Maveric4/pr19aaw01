@@ -1,41 +1,37 @@
 ![](media/image1.png){width="0.5083333333333333in"
 height="0.9833333333333333in"}
+**[1. Wstęp](#wstęp) **
 
-**[1. Wstęp](#wstęp) 3**
-
-> [Cel projektu](#cel-projektu) 3
+> [Cel projektu](#cel-projektu)
 >
-> [Proponowane rozwiązanie](#proponowane-rozwiązanie) 3
+> [Proponowane rozwiązanie](#proponowane-rozwiązanie) 
 >
-> [Zawartość sprawozdania](#zawartość-sprawozdania) 3
+> [Zawartość sprawozdania](#zawartość-sprawozdania)
 
-**[2. Opis proponowanego rozwiązania](#opis-proponowanego-rozwiązania)
-4**
+**[2. Opis proponowanego rozwiązania](#opis-proponowanego-rozwiązania)**
 
-> [Architektura sieci](#architektura-sieci) 4
+> [Architektura sieci](#architektura-sieci)
 >
-> [Obrazy referencyjne](#obrazy-referencyjne) 7
+> [Obrazy referencyjne](#obrazy-referencyjne)
 >
-> [Zbiór danych](#zbiór-danych) 8
+> [Zbiór danych](#zbiór-danych)
 
-**[3. Wyniki](#wyniki) 10**
+**[3. Wyniki](#wyniki)**
 
-**[4. Analiza modelu](#analiza-modelu) 14**
+**[4. Analiza modelu](#analiza-modelu)**
 
-**[5. Bibliografia](#bibliografia) 15**
+**[5. Bibliografia](#bibliografia)**
 
 **[6. DODATEK A: Konfiguracje
-sprzętowe](#dodatek-a-konfiguracje-sprzętowe) 15**
+sprzętowe](#dodatek-a-konfiguracje-sprzętowe)**
 
 **[7. DODATEK B: Dokumentacja
-techniczna](#dodatek-b-dokumentacja-techniczna) 16**
+techniczna](#dodatek-b-dokumentacja-techniczna)**
 
-**[8. DODATEK C: Zawartość płyty DVD](#dodatek-c-zawartość-płyty-dvd)
-16**
+**[8. DODATEK C: Zawartość płyty DVD](#dodatek-c-zawartość-płyty-dvd)**
 
 
-1. Wstęp
-========
+# 1. Wstęp
 
 Cel projektu
 ------------
@@ -97,8 +93,7 @@ opis wstępnych prac związanych z implementacją aplikacji oraz uzyskanych
 wyników. W czwartym krótko przedstawiono dane związane z
 zaimplementowanym modelem sieci.
 
-2. Opis proponowanego rozwiązania
-=================================
+# 2. Opis proponowanego rozwiązania
 
 Architektura sieci
 ------------------
