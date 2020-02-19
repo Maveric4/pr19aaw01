@@ -1,5 +1,4 @@
-![](media/image1.png){width="0.5083333333333333in"
-height="0.9833333333333333in"}
+
 **[1. Wstęp](#wstęp) **
 
 > [Cel projektu](#cel-projektu)
@@ -120,8 +119,7 @@ warstw dekodera lokalnych cech obrazu w wysokiej rozdzielczości, które w
 innym przypadku mogłyby zostać utracone. Dzięki nim sieć jest w stanie
 bardziej precyzyjnie odwzorować obraz wejściowy.
 
-![](media/image10.png){width="6.205903324584427in"
-height="4.0986023622047245in"}
+![](media/image1.png)
 
 *Rys. 1. Architektura oryginalnej sieci U-Net. Źródło: \[2\]*
 
@@ -147,8 +145,7 @@ wytrenowanymi na zbiorze obrazów ImageNet, a następnie jedynie douczono
 ją posiadanym zbiorem uczącym. Niemożliwe byłoby bowiem nauczenie sieci
 od podstaw.
 
-![](media/image3.jpg){width="6.690277777777778in"
-height="3.9444444444444446in"}
+![](media/image2.png)
 
 *Rys. 2. Architektura sieci VGG-16. Źródło: \[4\]*
 
@@ -183,7 +180,7 @@ warstwę konwolucyjną z funkcją aktywacji *softmax*, która zwraca
 prawdopodobieństwo przynależności każdego piksela obrazu do
 poszczególnych klas.
 
-![](media/image6.png){width="6.690277777777778in" height="2.875in"}
+![](media/image3.png)
 
 *Rys. 3. Grafika pokazująca zalety połączeń między warstwami enkodera i
 dekodera. Źródło: \[5\]*
@@ -199,8 +196,7 @@ obiektów na obrazie. W pierwszej kolejności wykorzystano narzędzie
 *Image Labeler* z pakietu Image Processing and Computer Vision programu
 MATLAB\[7\].
 
-![](media/image5.png){width="4.166666666666667in"
-height="4.177083333333333in"}
+![](media/image4.png)
 
 *Rys. 4. Przykładowa etykieta otrzymana z wykorzystaniem Image Labeler.*
 
@@ -229,8 +225,7 @@ Wynikiem powyższej operacji jest obraz RGB. Przykładową etykietę
 zaprezentowano poniżej na rysunku 5.1. Na rysunku 5.2 zaprezentowano
 obraz po konwersji do wartości 0-3.
 
-![](media/image11.png){width="6.690277777777778in"
-height="3.3472222222222223in"}
+![](media/image5.png)
 
 *Rys. 5.1 Wynik po etykietowaniu w programie gimp. (czarny - tło,
 niebieski - łupina, zielony - tkanka zdrowa, czerwony - tkanka chora i
@@ -249,8 +244,7 @@ uczący, walidacyjny oraz testowy następująco:
 
 -   zbiór testowy - 5 zdjęć.
 
-![](media/image15.png){width="3.3177088801399823in"
-height="3.3177088801399823in"}
+![](media/image6.png)
 
 *Rys. 6. Przykładowy obraz żołędzia z otrzymanego zbioru danych*
 
@@ -317,7 +311,7 @@ z uczeniem maszynowym. Umożliwia śledzenie wskaźników eksperymentów,
 takich jak błąd i dokładność oraz pozwala na wizualizację grafu modelu.
 Przykładowy wykres można zobaczyć na rys. 6.
 
-![](media/image13.jpg){width="6.690277777777778in" height="2.125in"}
+![](media/image7.png)
 
 *Rys.7. Przykładowy wykres dokładności zb. treningowego i walidacyjnego
 w zależności od epoki*
@@ -339,29 +333,30 @@ wzorcowy. Znajdujący się na środku obrazu ubytek w miąższu został
 przyporządkowany jako łupina, a nie miąższ z objawami choroby, gdzie na
 obrazie wzorcowym te informacje nie zostały zawarte.
 
-![](media/image9.png){width="6.690277777777778in"
-height="2.3472222222222223in"}
+![](media/image8.png)
 
 *Rys.8. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci
 wykorzystującej rozmycia w procesie rozszerzania zbioru
-treningowego*![](media/image8.png){width="6.690277777777778in"
-height="2.236111111111111in"}
+treningowego*
+
+![](media/image9.png)
 
 *Rys.9. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci nie
 wykorzystującej rozmycia w procesie rozszerzania zbioru
-treningowego*![](media/image4.png){width="6.690277777777778in"
-height="2.361111111111111in"}
+treningowego*
+
+![](media/image10.png)
 
 *Rys.10. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci
 wykorzystującej rozmycia w procesie rozszerzania zbioru treningowego*
 
+![](media/image11.png
+
 *Rys.11. Porównanie oryginalnego obrazu, wzorca oraz wyniku sieci nie
 wykorzystującej rozmycia w procesie rozszerzania zbioru
-treningowego*![](media/image7.png){width="6.690277777777778in"
-height="2.2777777777777777in"}
+treningowego*
 
-![](media/image12.png){width="6.690277777777778in"
-height="2.7222222222222223in"}
+![](media/image12.png)
 
 *Rys.12. Porównanie oryginalnego obrazu i masek pokazujących punkty
 niezgodne obrazów wynikowych sieci z obrazem wzorcowym*
@@ -402,14 +397,13 @@ Sprawdzono również czas wykonywania obliczeń z wykorzystaniem tych
 trzech modeli. Testy przeprowadzono na obu dostępnych platformach
 sprzętowych. Wyniki przedstawiono poniżej.
 
-![](media/image14.png){width="6.666666666666667in" height="5.0in"}
+![](media/image13.png)
 
 *Rys.13. Wykres słupkowy pokazujący średni czas przetwarzania obrazu w
 zależności\
 od modelu i liczby iteracji dla konfiguracji sprzętowej nr 1*
 
-![](media/image2.png){width="6.666666666666667in"
-height="4.979166666666667in"}
+![](media/image14.png)
 
 *Rys.14. Wykres słupkowy pokazujący średni czas przetwarzania obrazu w
 zależności\
